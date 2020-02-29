@@ -1,0 +1,250 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Thymeleaf</title>
+    <link rel="stylesheet" th:href="@{/layui/css/layui.css(t=2)}" media="all">
+    <link rel="stylesheet" th:href="@{/febs/css/myfebs.css(t=2)}" media="all">
+    <link rel="stylesheet" th:href="@{/febs/css/mylogin.css(t=2)}" media="all">
+
+</head>
+<body>
+<div id="febs-login">
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-xs12 layui-col-lg-offset4 layui-col-lg4"
+                 style="text-align: center;background-color: rgba(255,236,60,0.2)">
+                <div class="layui-logo">
+                    <span><b>SSO</b>权限管理系统</span>
+                </div>
+            </div>
+            <div class="layui-col-xs12 layui-col-lg-offset4 layui-col-lg4" id="login-div">
+                <div class="layui-form">
+                    <div class="layui-anim layui-anim-upbit">
+                        <div class="login-type-tab">系统登录</div>
+                        <div class="">
+                            <div class="layui-form-item">
+                                <label class="layui-icon label-icon layui-icon-username"></label>
+                                <input type="text" name="username" value="MrBird" lay-verify="required"
+                                       placeholder="用户名"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-icon label-icon layui-icon-password"></label>
+                                <input type="password" name="password" value="1234qwer" lay-verify="required"
+                                       placeholder="密码"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-row">
+                                    <div class="layui-col-xs7">
+                                        <label class="layui-icon label-icon layui-icon-vercode"></label>
+                                        <input type="text" name="verifyCode" lay-verify="required" placeholder="验证码"
+                                               autocomplete="off" class="layui-input">
+                                    </div>
+                                    <div class="layui-col-xs5">
+                                        <img class="codeimg" id="codeimg"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="margin-top: -10px;">
+                                <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
+                            </div>
+                            <div class="layui-form-item">
+                                <button class="layui-btn layui-btn-normal layui-btn-fluid" lay-submit
+                                        lay-filter="login-submit">
+                                    <i style="display: none"
+                                       class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>
+                                    立即登录
+                                </button>
+                            </div>
+                            <div class="layui-form-item" style="text-align: right">
+                                <a id="regist-href">注册账号</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layui-col-xs12 layui-col-lg-offset4 layui-col-lg4" id="regist-div" style="display: none">
+                <div class="layui-form">
+                    <div class="layui-anim layui-anim-upbit">
+                        <div class="login-type-tab">注册</div>
+                        <div class="">
+                            <div class="layui-form-item">
+                                <label class="layui-icon label-icon layui-icon-username"></label>
+                                <input type="text" name="username" lay-verify="required" placeholder="用户名"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-icon label-icon layui-icon-password"></label>
+                                <input type="password" name="password" lay-verify="required" placeholder="密码"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-item">
+                                <label class="layui-icon label-icon layui-icon-password"></label>
+                                <input type="password" name="passwordB" lay-verify="required" placeholder="确认密码"
+                                       autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-item">
+                                <div class="layui-row">
+                                    <div class="layui-col-xs7">
+                                        <label class="layui-icon label-icon layui-icon-vercode"></label>
+                                        <input type="text" name="verifyCode" lay-verify="required" placeholder="验证码"
+                                               autocomplete="off" class="layui-input">
+                                    </div>
+                                    <div class="layui-col-xs5">
+                                        <img class="codeimg" id="codeimg2"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layui-form-item" style="margin-top: -10px;">
+                                <input type="checkbox" name="rememberMe" title="记住我" lay-skin="primary">
+                            </div>
+                            <div class="layui-form-item">
+                                <button lay-submit lay-filter="regist-submit"
+                                        class="layui-btn layui-btn-normal layui-btn-fluid"><i style="display: none" class="layui-icon layui-icon-loading layui-icon layui-anim layui-anim-rotate layui-anim-loop"></i>注册
+                                </button>
+                            </div>
+                            <div class="layui-form-item" style="text-align: right">
+                                <a id="login-href">登录</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+
+<script th:src="@{/layui/layui.js}"></script>
+
+
+<script th:inline="javascript">
+    var ctx = [[@{/}]];
+
+        //一般直接写在一个js文件中
+        layui.use(['layer', 'form'], function (layer, form) {
+
+            var $ = layui.jquery;
+            var $view = $('#febs-login'),
+                type = 'login',
+                $loginDiv = $view.find('#login-div'),
+                $registDiv = $view.find('#regist-div');
+
+            form.render();
+
+            function initCode() {
+                $view.find('#codeimg').attr("src", ctx + "sso/images/captcha?data=" + new Date().getTime())
+            }
+
+            initCode();
+
+            $view.find('#codeimg').on('click', function () {
+                initCode();
+            });
+
+            //提交登录表单
+            form.on('submit(login-submit)', function (data) {
+                var loading = $(this).find('.layui-icon');
+                if (loading.is(":visible")) return;
+                loading.show();
+                $.post(ctx + 'sso/login'+ window.location.search, data.field, function (r) {
+                    if (r.code === 200) {
+                        location.href = ctx + 'index';
+                    }else if (r.code === 302){
+                        //redirect_url
+                        var redirectUrl = r.data;
+                        location.href = redirectUrl;
+                    } else {
+                        layer.msg(r.message);
+                        loading.hide();
+                        initCode();
+                    }
+                });
+                return false;
+            });
+
+            form.on('submit(regist-submit)', function (data) {
+                if (data.field.password !== data.field.passwordB) {
+                    layer.msg("两次密码不一样");
+                    return;
+                }
+                var loading = $(this).find('.layui-icon');
+                if (loading.is(':visible')) return;
+                loading.show();
+                $.post(ctx + 'regist', data.field, function (r) {
+                    if (r.code === 200) {
+                        // location.href = ctx + 'in'
+                        layer.msg("注册成功，请登录");
+                        loading.hide();
+                        $registDiv.find('#login-href').trigger('click');
+                    }
+                    else {
+                        loading.hide();
+                        layer.msg(r.message);
+                        initRegistCode();
+                    }
+                })
+            });
+
+            function initRegistCode() {
+                $view.find('#codeimg2').attr("src", ctx + "sso/images/captcha?data=" + new Date().getTime())
+            }
+
+            $view.find('#regist-href').on('click', function () {
+                // type = 'regist';
+                resetForm();
+                $loginDiv.hide();
+                $registDiv.show();
+                initRegistCode();
+            });
+
+            $view.find('#login-href').on('click', function () {
+                // type = 'login';
+                resetForm();
+                $loginDiv.show();
+                $registDiv.hide();
+                initCode();
+            });
+
+            function resetForm() {
+                $registDiv.find('input[name="username"]').val('')
+                    .end().find('input[name="password"]').val('')
+                    .end().find('input[name="passwordB"]').val('')
+                    .end().find('input[name="verifyCode"]').val('');
+
+                $loginDiv.find('input[name="username"]').val('')
+                    .end().find('input[name="password"]').val('')
+                    .end().find('input[name="verifyCode"]').val('');
+            }
+
+
+            function getQueryVariable(variable)
+            {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                    var pair = vars[i].split("=");
+                    if(pair[0] == variable){return pair[1];}
+                }
+                return(false);
+            }
+
+
+            // layer.msg(window.location.search);
+
+
+
+
+        });
+</script>
+</body>
+</html>

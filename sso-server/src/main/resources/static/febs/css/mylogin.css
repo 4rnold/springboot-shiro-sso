@@ -1,0 +1,60 @@
+#febs-login{
+/*    height: 100%;
+    background: #F0F2F5 url("../images/background.svg") no-repeat center;
+    height: 540px;
+    !*padding-top: 1px;*!
+    position: relative;
+    !*top: 50%;*!
+    !*margin-top: -290px;*!
+    !*height: 540px;*!*/
+
+    height: 100%;
+    background: #f0f2f5 url(../images/background.svg) no-repeat center 110px;
+    padding-top: 1px;
+    margin-top: -1px;
+}
+
+#febs-login .layui-logo {
+    font-size: 27px;
+    height: 120px;
+    font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+    transition: height .8s cubic-bezier(0.075,0.82,0.165,1);
+    line-height: 120px;
+}
+
+#febs-login .layui-logo span {
+    font-weight: 600;
+    color: rgba(0,0,0,.85);
+    border-bottom: 1px solid #3491ff;
+}
+
+#febs-login .layui-form {
+    background: #fff;
+    padding: 40px 40px 20px;
+    box-shadow: 1px 3px 3px #ccc;
+}
+
+#febs-login .layui-form-item {
+    position: relative;
+}
+
+#febs-login .layui-form-item .label-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 38px;
+    line-height: 38px;
+    color: #d2d2d2!important;
+    text-align: center;
+}
+
+#febs-login .layui-input {
+    text-indent: 26px;
+    border-radius: 2px;
+    border-color: #eeeeee;
+
+}
+
+#febs-login .login-type-tab {
+    margin-bottom: 20px;
+}

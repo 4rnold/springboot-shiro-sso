@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="Thymeleaf"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+    <link rel="icon" href="data:;base64,=">
+</head>
+
+<body>
+
+正在退出...
+
+<script src="http://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script th:inline="javascript">
+
+    $(document).ready(function(){
+        $.ajax({
+            url: "http://server1:9001/api/logout-urls",
+            type: "get",
+            xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true,
+            async: false,
+            success: function (res,status) {
+                if (res.code === 200) {
+                    var data = res.data;
+                    data.forEach(function (item, index) {
+                        // (function(index) {
+                        //     setTimeout(function(){
+                        //         sendLogout(item);
+                        //         $("body").append("<p>调用"+ item + "</p>");
+                        //     },  2000);
+                        // })(index)
+                        // sleep(2000);
+                        sendLogout(item);
+                        //$("body").append("<p>调用"+ item + "</p>");
+                        console.log(item + " 执行完了")
+
+                    });
+                    console.log("for 执行完了")
+                } else {
+                    alert("server error");
+                }
+            }
+        });
+        console.log("ajax 执行完了")
+        //跳转之前的url
+         window.location.href = [[${redirectUrl}]];
+
+        function sleep(delay) {
+            for(var t = Date.now(); Date.now() - t <= delay;);
+        }
+
+
+        function sendLogout(logoutUrl) {
+            $.ajax({
+                url: logoutUrl,
+                type: "get",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                async: false
+            });
+        }
+
+        // $("button").click(function(){
+        //     $.ajax({
+        //         url: "http://server2:9092/logout",
+        //         type: "get",
+        //         xhrFields: {
+        //             withCredentials: true
+        //         },
+        //         crossDomain: true,
+        //         success: function (data,status) {
+        //             console.log("数据: " + data + "\n状态: " + status);
+        //         }
+        //     });
+        // });
+        //
+        // var authenticated = '[[${authenticated}]]';
+        // if (authenticated === 'false') {
+        //     $.ajax({
+        //         url: "http://server1:9001/sso/if-login",
+        //         type: "POST",
+        //         xhrFields: {
+        //             withCredentials: true
+        //         },
+        //         crossDomain: true,
+        //         success: function (res) {
+        //             if (res === true) {
+        //                 window.location.href = "/login";
+        //             }
+        //         }
+        //     });
+        // }
+    });
+
+
+</script>
+</body>
+
+</html>

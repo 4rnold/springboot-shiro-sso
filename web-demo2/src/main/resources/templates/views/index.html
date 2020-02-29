@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="Thymeleaf"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home Page</title>
+    <link rel="icon" href="data:;base64,=">
+</head>
+
+<body>
+
+<p shiro:guest="">Please <a href="/login">login</a></p>
+
+<shiro:user><shiro:principal/>已登录 <a href="/logout">logout</a></shiro:user>
+
+<script src="http://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function(){
+
+        var authenticated = '[[${authenticated}]]';
+        if (authenticated === 'false') {
+            $.ajax({
+                url: "http://server1:9001/sso/if-login",
+                type: "POST",
+                xhrFields: {
+                    withCredentials: true
+                },
+                crossDomain: true,
+                success: function (res) {
+                    if (res === true) {
+                        window.location.href = "/login";
+                    }
+                }
+            });
+        }
+    });
+
+
+</script>
+</body>
+
+</html>

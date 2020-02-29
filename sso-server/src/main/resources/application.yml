@@ -1,0 +1,36 @@
+
+server:
+  tomcat:
+    uri-encoding: utf-8
+  port: 9001
+spring:
+  profiles:
+    active: dev
+
+
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/views/
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  aop:
+    proxy-target-class: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/febs_base?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2b8
+    username: root
+    password: 123456
+  messages:
+    basename: exceptions
+
+mybatis-plus:
+  configuration:
+    jdbc-type-for-null: null #��Ҫ���oracle 测试
+    default-enum-type-handler: org.apache.ibatis.type.EnumOrdinalTypeHandler
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 用于显示mybatis sql
+  global-config:
+    db-config:
+      select-strategy: not_empty
+  type-enums-package: com.arnold.ssoserver.system.enums

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.arnold</groupId>
+    <artifactId>springboot-shiro-sso</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>${project.artifactId}</name>
+    <description>springboot shiro sso system</description>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>sso-boot-starter</module>
+        <module>sso-client</module>
+        <module>sso-core</module>
+        <module>sso-server</module>
+        <module>web-demo1</module>
+        <module>web-demo2</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+        <maven.test.skip>true</maven.test.skip>
+
+
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <jedis.version>3.0.0</jedis.version>
+
+        <spring-boot.version>2.2.4.RELEASE</spring-boot.version>
+        <spring.version>4.3.21.RELEASE</spring.version>
+
+    </properties>
+
+
+</project>

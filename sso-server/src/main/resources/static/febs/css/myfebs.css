@@ -1,0 +1,33 @@
+/*body, html, #app, .layui-body {
+    height: 100%;
+    background: #f3f3f3;
+}*/
+
+body {
+    height: 100%;
+    background: #f3f3f3;
+}
+
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#ccc}
+
+.layui-input {
+    transition: border-color 0.15s ease-in-out,box-shadow 0.15s ease-in-out;
+    border-radius: 2px;
+    border-color: #eee;
+}
+
+.layui-input:focus, .layui-textarea:focus {
+    border-color: #94b2fa !important;
+    box-shadow: 0 0 0 3px rgba(90, 139, 255, 0.2)
+}
+
+a {
+    cursor: pointer;
+    color: #2db7f5;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #1e51c7;
+}
+
