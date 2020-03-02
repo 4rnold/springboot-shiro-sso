@@ -5,7 +5,7 @@
 ![](https://raw.githubusercontent.com/4rnold/Blog/pic/img/QQ%E5%BD%95%E5%B1%8F20200229154121.gif)
 
 # 使用
-客户端只需添加starter引用，配置文件中增加相应配置即可。
+客户端只需添加starter引用，配置文件中增加相应配置即可。参见web-demo。
 ```xml
   <dependency>
       <groupId>com.arnold</groupId>
