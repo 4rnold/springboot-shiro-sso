@@ -14,7 +14,7 @@
         <module>sso-client</module>
         <module>sso-core</module>
         <module>sso-server</module>
-        <module>web-demo1</module>
+<!--        <module>web-demo1</module>-->
         <module>web-demo2</module>
     </modules>
 

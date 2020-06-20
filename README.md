@@ -4,6 +4,10 @@
 # 演示
 ![](https://raw.githubusercontent.com/4rnold/Blog/pic/img/QQ%E5%BD%95%E5%B1%8F20200229154121.gif)
 
+# client登录流程
+![](https://raw.githubusercontent.com/4rnold/Blog/pic/img/springboot-shiro-sso%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B.png)
+
+
 # 使用
 客户端只需添加starter引用，配置文件中增加相应配置即可。参见web-demo。
 ```xml
